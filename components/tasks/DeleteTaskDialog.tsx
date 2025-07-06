@@ -44,20 +44,19 @@ export function DeleteTaskDialog({ open, onOpenChange, task, onTaskDeleted }: De
 
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
-      <AlertDialogContent>
+      <AlertDialogContent className="bg-white">
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete Task</AlertDialogTitle>
+          <AlertDialogTitle className="text-gray-900">Delete Task</AlertDialogTitle>
           <AlertDialogDescription className="space-y-2">
-            <p>
-              Are you sure you want to delete the task record for{" "}
+            <p className="text-gray-900">
+              Are you sure you want to delete the task{" "}
               <span className="font-semibold">
-                {task.task}
+                "{task.task}"
               </span>
               ?
             </p>
-            <p className="text-sm text-muted-foreground">
-              This action cannot be undone. All task data, including medical history,
-              measurements, and notes will be permanently removed from the system.
+            <p className="text-sm text-gray-900">
+              This action cannot be undone. The task will be permanently removed from the system.
             </p>
           </AlertDialogDescription>
         </AlertDialogHeader>
