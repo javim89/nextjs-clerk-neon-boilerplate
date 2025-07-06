@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔥 Next.js + Clerk + Neon Boilerplate
 
-## Getting Started
+This is a modern and minimalist boilerplate that combines [Next.js](https://nextjs.org/), [Clerk](https://clerk.com/) for authentication, and [Neon](https://neon.tech/) as a serverless PostgreSQL database. Ideal for quickly starting your SaaS projects, dashboards, or full-stack web apps.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- 🔐 User authentication and management with Clerk
+- ⚡ Serverless PostgreSQL database with Neon
+- 🚀 Hybrid rendering (SSR + SSG) with Next.js 14+
+- 📦 Development and production-ready environment setup
+- 🧪 Scalable folder structure
+- 🛠️ Prisma-ready integration (optional)
+- ✅ Strong typing with TypeScript
+
+---
+
+## 📦 Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/javim89/nextjs-clerk-neon-boilerplate.git
+cd nextjs-clerk-neon-boilerplate
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Create a .env.local file based on the .env.example.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Complete the environment variables for Clerk and Neon:
 
-## Learn More
+```bash
+CLERK_PUBLISHABLE_KEY=...
+CLERK_SECRET_KEY=...
+NEXT_PUBLIC_CLERK_FRONTEND_API=...
 
-To learn more about Next.js, take a look at the following resources:
+DATABASE_URL=postgresql://...
+```
+💡 You need a Clerk and Neon account to get your keys.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Run in development
+```bash
+pnpm dev
+```
+## 🙌 Contributions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Open an issue or make a PR if you have suggestions, improvements, or bugs you'd like to fix.
