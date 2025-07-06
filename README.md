@@ -31,11 +31,13 @@ pnpm install
 2. Complete the environment variables for Clerk and Neon:
 
 ```bash
-CLERK_PUBLISHABLE_KEY=...
-CLERK_SECRET_KEY=...
-NEXT_PUBLIC_CLERK_FRONTEND_API=...
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxxxxx
+CLERK_SECRET_KEY=sk_test_xxxx
+CLERK_WEBHOOK_SECRET=whsec_xxxxx
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-DATABASE_URL=postgresql://...
+# Database
+DATABASE_URL='xxxxxx'
 ```
 💡 You need a Clerk and Neon account to get your keys.
 
