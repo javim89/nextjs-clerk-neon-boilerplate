@@ -10,6 +10,7 @@
     "migrate": "pnpm dlx prisma migrate dev --name init"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.28.1",
     "@neondatabase/serverless": "^1.0.1",
     "@prisma/adapter-neon": "^6.11.1",
     "@prisma/client": "^6.11.1",
