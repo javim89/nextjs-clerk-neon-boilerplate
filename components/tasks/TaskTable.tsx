@@ -113,95 +113,119 @@ export function TaskTable() {
 
   return (
     <>
-      <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="p-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <Input
-                placeholder="Search tasks..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 w-80 bg-white border-gray-200 focus:bg-white focus:outline-none focus:border-transparent focus:shadow-md transition-all duration-200 text-gray-900 placeholder-gray-500 hover:border-gray-300"
-              />
+      <Card className="shadow-xl border-0 bg-white/90 backdrop-blur-md overflow-hidden">
+        <CardContent className="p-0">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 border-b border-gray-100">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Input
+                  placeholder="Search your tasks..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-12 h-12 bg-white/80 border-0 focus:bg-white focus:ring-2 focus:ring-blue-500/20 shadow-sm rounded-xl text-gray-900 placeholder-gray-500 backdrop-blur-sm"
+                />
+              </div>
+              <Button 
+                onClick={handleAddTask} 
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium h-12"
+              >
+                <Plus className="w-5 h-5 mr-2" />
+                Add New Task
+              </Button>
             </div>
-            <Button onClick={handleAddTask} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow-md transition-all duration-200 hover:shadow-lg">
-              <Plus className="w-4 h-4 mr-2" />
-              Add New Task
-            </Button>
           </div>
 
-          <div className="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-gray-50/50">
-                  <TableHead className="font-semibold text-gray-700 py-4">Task</TableHead>
-                  <TableHead className="text-right font-semibold text-gray-700 py-4">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {loading ? (
-                  <TableRow>
-                    <TableCell colSpan={2} className="text-center py-12">
-                      <div className="flex items-center justify-center space-x-2 text-gray-500">
-                        <div className="w-4 h-4 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
-                        <span>Loading tasks...</span>
-                      </div>
-                    </TableCell>
+          <div className="p-8">
+            <div className="rounded-2xl border border-gray-100 overflow-hidden bg-white shadow-sm">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-gradient-to-r from-gray-50 to-blue-50/30 border-b border-gray-100">
+                    <TableHead className="font-semibold text-gray-700 py-5 text-base">Tasks</TableHead>
+                    <TableHead className="text-right font-semibold text-gray-700 py-5 text-base">Actions</TableHead>
                   </TableRow>
-                ) : filteredTasks.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={2} className="text-center py-12">
-                      <div className="text-gray-500">
-                        <div className="text-4xl mb-2">📝</div>
-                        <p className="text-lg font-medium">No tasks found</p>
-                        <p className="text-sm text-gray-400 mt-1">Create your first task to get started!</p>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  filteredTasks.map((task) => (
-                    <TableRow key={task.id} className="hover:bg-gray-50/50 transition-colors">
-                      <TableCell className="py-4">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="font-medium text-gray-900">{task.task}</span>
+                </TableHeader>
+                <TableBody>
+                  {loading ? (
+                    <TableRow>
+                      <TableCell colSpan={2} className="text-center py-16">
+                        <div className="flex flex-col items-center justify-center space-y-3 text-gray-500">
+                          <div className="w-8 h-8 border-3 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+                          <span className="text-base font-medium">Loading your tasks...</span>
                         </div>
-                        <div className="text-sm text-gray-500 mt-1">
-                          Created: {new Date(task.createdAt).toLocaleDateString()}
-                        </div>
-                      </TableCell>
-                      <TableCell className="text-right py-4">
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="h-8 w-8 p-0 hover:bg-gray-100 rounded-full opacity-100">
-                              <MoreHorizontal className="h-4 w-4 text-gray-600" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-200 shadow-lg">
-                            <DropdownMenuItem onClick={() => handleViewTask(task)} className="cursor-pointer hover:bg-gray-50 text-gray-700">
-                              <Eye className="mr-2 h-4 w-4" />
-                              View Details
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => handleEditTask(task)} className="cursor-pointer hover:bg-gray-50 text-gray-700">
-                              <Edit className="mr-2 h-4 w-4" />
-                              Edit
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => handleDeleteTask(task)}
-                              className="text-red-600 cursor-pointer hover:bg-red-50"
-                            >
-                              <Trash2 className="mr-2 h-4 w-4" />
-                              Delete
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
                       </TableCell>
                     </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
+                  ) : filteredTasks.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={2} className="text-center py-16">
+                        <div className="text-gray-500">
+                          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span className="text-3xl">📝</span>
+                          </div>
+                          <p className="text-xl font-semibold text-gray-700 mb-2">No tasks yet</p>
+                          <p className="text-gray-500 mb-4">Create your first task to get started on your productivity journey!</p>
+                          <Button 
+                            onClick={handleAddTask}
+                            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all"
+                          >
+                            <Plus className="w-4 h-4 mr-2" />
+                            Create First Task
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    filteredTasks.map((task, index) => (
+                      <TableRow key={task.id} className="hover:bg-blue-50/30 transition-all duration-200 border-b border-gray-50 group">
+                        <TableCell className="py-6">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-sm"></div>
+                            <div className="flex-1">
+                              <span className="font-semibold text-gray-900 text-base leading-relaxed">{task.task}</span>
+                              <div className="text-sm text-gray-500 mt-1 flex items-center space-x-2">
+                                <span>Created {new Date(task.createdAt).toLocaleDateString('en-US', { 
+                                  month: 'short', 
+                                  day: 'numeric', 
+                                  year: 'numeric' 
+                                })}</span>
+                                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                                <span>Task #{index + 1}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-right py-6">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="sm" className="h-9 w-9 p-0 hover:bg-gray-100 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200">
+                                <MoreHorizontal className="h-5 w-5 text-gray-600" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-100 shadow-xl rounded-xl p-1">
+                              <DropdownMenuItem onClick={() => handleViewTask(task)} className="cursor-pointer hover:bg-blue-50 text-gray-700 rounded-lg py-2.5 px-3 transition-colors">
+                                <Eye className="mr-3 h-4 w-4 text-blue-600" />
+                                View Details
+                              </DropdownMenuItem>
+                              <DropdownMenuItem onClick={() => handleEditTask(task)} className="cursor-pointer hover:bg-green-50 text-gray-700 rounded-lg py-2.5 px-3 transition-colors">
+                                <Edit className="mr-3 h-4 w-4 text-green-600" />
+                                Edit Task
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                onClick={() => handleDeleteTask(task)}
+                                className="text-red-600 cursor-pointer hover:bg-red-50 rounded-lg py-2.5 px-3 transition-colors"
+                              >
+                                <Trash2 className="mr-3 h-4 w-4" />
+                                Delete Task
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
           </div>
         </CardContent>
       </Card>
