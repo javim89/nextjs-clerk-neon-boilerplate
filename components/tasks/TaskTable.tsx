@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Plus, Search, MoreHorizontal, Edit, Eye, Trash2 } from "lucide-react"
+import { Plus, Search, Edit, Eye, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -13,12 +13,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { TaskForm } from "./TaskForm"
 import { TaskDetails } from "./TaskDetails"
 import { DeleteTaskDialog } from "./DeleteTaskDialog"
@@ -195,30 +189,32 @@ export function TaskTable() {
                           </div>
                         </TableCell>
                         <TableCell className="text-right py-6">
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" size="sm" className="h-9 w-9 p-0 hover:bg-gray-100 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200">
-                                <MoreHorizontal className="h-5 w-5 text-gray-600" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-100 shadow-xl rounded-xl p-1">
-                              <DropdownMenuItem onClick={() => handleViewTask(task)} className="cursor-pointer hover:bg-blue-50 text-gray-700 rounded-lg py-2.5 px-3 transition-colors">
-                                <Eye className="mr-3 h-4 w-4 text-blue-600" />
-                                View Details
-                              </DropdownMenuItem>
-                              <DropdownMenuItem onClick={() => handleEditTask(task)} className="cursor-pointer hover:bg-green-50 text-gray-700 rounded-lg py-2.5 px-3 transition-colors">
-                                <Edit className="mr-3 h-4 w-4 text-green-600" />
-                                Edit Task
-                              </DropdownMenuItem>
-                              <DropdownMenuItem
-                                onClick={() => handleDeleteTask(task)}
-                                className="text-red-600 cursor-pointer hover:bg-red-50 rounded-lg py-2.5 px-3 transition-colors"
-                              >
-                                <Trash2 className="mr-3 h-4 w-4" />
-                                Delete Task
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                          <div className="flex items-center justify-end gap-1">
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              onClick={() => handleViewTask(task)}
+                              className="h-8 w-8 p-0 hover:bg-blue-50 rounded-lg cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
+                            >
+                              <Eye className="h-4 w-4 text-blue-600" />
+                            </Button>
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              onClick={() => handleEditTask(task)}
+                              className="h-8 w-8 p-0 hover:bg-green-50 rounded-lg cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
+                            >
+                              <Edit className="h-4 w-4 text-green-600" />
+                            </Button>
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              onClick={() => handleDeleteTask(task)}
+                              className="h-8 w-8 p-0 hover:bg-red-50 rounded-lg cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
+                            >
+                              <Trash2 className="h-4 w-4 text-red-600" />
+                            </Button>
+                          </div>
                         </TableCell>
                       </TableRow>
                     ))
