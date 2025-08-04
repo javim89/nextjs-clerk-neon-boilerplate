@@ -33,7 +33,7 @@ export function CodeBlock({ children, filename }: CodeBlockProps) {
               size="sm"
               variant="ghost"
               onClick={copyToClipboard}
-              className="h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-800"
+              className="h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-800 cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
             >
               {copied ? <CheckCircle className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
             </Button>
@@ -48,7 +48,7 @@ export function CodeBlock({ children, filename }: CodeBlockProps) {
               size="sm"
               variant="ghost"
               onClick={copyToClipboard}
-              className="h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-800"
+              className="h-8 w-8 p-0 text-gray-400 hover:text-white hover:bg-gray-800 cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
             >
               {copied ? <CheckCircle className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
             </Button>
@@ -131,7 +131,7 @@ export function LinkButton({ href, children, external = true }: LinkButtonProps)
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
     >
       {children}
       {external && <ExternalLink className="h-4 w-4" />}

@@ -122,7 +122,7 @@ export function TaskTable() {
               </div>
               <Button 
                 onClick={handleAddTask} 
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium h-12"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 font-medium h-12 cursor-pointer active:scale-95 active:shadow-inner"
               >
                 <Plus className="w-5 h-5 mr-2" />
                 Add New Task

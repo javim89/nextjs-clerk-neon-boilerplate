@@ -113,14 +113,14 @@ export function TaskForm({ open, onOpenChange, task, mode, onTaskSaved }: TaskFo
               type="button" 
               variant="outline" 
               onClick={() => onOpenChange(false)}
-              className="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors bg-white"
+              className="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors bg-white cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
             >
               Cancel
             </Button>
             <Button 
               type="submit" 
               disabled={loading}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm cursor-pointer active:scale-95 active:shadow-inner transition-all duration-150"
             >
               {loading ? (
                 <div className="flex items-center space-x-2">
