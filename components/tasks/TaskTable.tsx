@@ -67,7 +67,7 @@ export function TaskTable() {
 
   useEffect(() => {
     fetchTasks()
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -75,7 +75,7 @@ export function TaskTable() {
     }, 300)
     
     return () => clearTimeout(timeoutId)
-  }, [searchTerm])
+  }, [searchTerm]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const filteredTasks = tasks
 

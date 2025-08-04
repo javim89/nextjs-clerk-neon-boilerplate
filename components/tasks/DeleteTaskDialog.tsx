@@ -51,7 +51,7 @@ export function DeleteTaskDialog({ open, onOpenChange, task, onTaskDeleted }: De
             <p className="text-gray-900">
               Are you sure you want to delete the task{" "}
               <span className="font-semibold">
-                "{task.task}"
+&quot;{task.task}&quot;
               </span>
               ?
             </p>

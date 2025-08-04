@@ -41,10 +41,10 @@ export default function RootLayout({
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">T</span>
+                    <span className="text-white font-bold text-sm">NS</span>
                   </div>
                   <h1 className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                    Boilerplate
+                    Next Spark
                   </h1>
                 </div>
                 <div className="flex items-center gap-3">

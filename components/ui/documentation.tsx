@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, Copy, ExternalLink, Database, Shield, Code, Terminal } from "lucide-react";
+import { CheckCircle, Copy, ExternalLink } from "lucide-react";
 import { Button } from "./button";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ interface CodeBlockProps {
   filename?: string;
 }
 
-export function CodeBlock({ children, language = "bash", filename }: CodeBlockProps) {
+export function CodeBlock({ children, filename }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {

@@ -9,9 +9,9 @@ neonConfig.webSocketConstructor = ws;
 // neonConfig.poolQueryViaFetch = true
 
 // Type definitions
-// declare global {
-//   var prisma: PrismaClient | undefined
-// }
+declare global {
+  var prisma: PrismaClient | undefined
+}
 
 const connectionString = `${process.env.DATABASE_URL}`;
 

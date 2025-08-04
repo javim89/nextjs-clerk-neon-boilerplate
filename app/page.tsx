@@ -42,7 +42,7 @@ pnpm install`}
                 icon={<Database className="h-5 w-5 text-green-600" />}
               >
                 <p className="mb-4">
-                  Create your PostgreSQL database with Neon's serverless platform:
+                  Create your PostgreSQL database with Neon&apos;s serverless platform:
                 </p>
                 <div className="space-y-4">
                   <div>
@@ -162,7 +162,7 @@ npx prisma studio`}
                 </div>
 
                 <Callout type="info" title="About Prisma">
-                  Prisma is a next-generation ORM that provides type-safe database access, automatic migrations, and a powerful query builder. It's already configured in this project to work seamlessly with Neon PostgreSQL.
+                  Prisma is a next-generation ORM that provides type-safe database access, automatic migrations, and a powerful query builder. It&apos;s already configured in this project to work seamlessly with Neon PostgreSQL.
                 </Callout>
               </Step>
 
@@ -172,7 +172,7 @@ npx prisma studio`}
                 icon={<Terminal className="h-5 w-5 text-blue-600" />}
               >
                 <p className="mb-4">
-                  You're ready to go! Start the development server:
+                  You&apos;re ready to go! Start the development server:
                 </p>
                 <CodeBlock language="bash">
                   {`npm run dev`}
@@ -188,7 +188,7 @@ npx prisma studio`}
                     ✓
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">🎉 You're All Set!</h3>
+                    <h3 className="font-semibold text-gray-800 mb-2">🎉 You&apos;re All Set!</h3>
                     <p className="text-gray-700 mb-4">
                       Your Boilerplate application is now ready to use. You can sign up, create tasks, and start organizing your productivity workflow.
                     </p>
